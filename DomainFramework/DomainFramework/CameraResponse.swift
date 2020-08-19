@@ -24,6 +24,14 @@ public struct Camera: Decodable, Equatable {
     public var cameraId: String
     public var imageMetaData: ImageMetaData
     
+    enum CodingKeys: String, CodingKey {
+        case timestamp
+        case image
+        case location
+        case cameraId = "camera_id"
+        case imageMetaData = "image_metadata"
+    }
+    
     public init(timestamp: String, image: String, location: Location, cameraId: String, imageMetaData: ImageMetaData) {
         self.timestamp = timestamp
         self.image = image
@@ -38,9 +46,9 @@ public struct Location: Decodable, Equatable {
     public var longitude: Double
     
     public init(latitude: Double, longitude: Double) {
-           self.latitude = latitude
-           self.longitude = longitude
-       }
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }
 
 public struct ImageMetaData: Decodable, Equatable {

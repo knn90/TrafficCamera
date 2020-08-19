@@ -19,6 +19,12 @@ class CameraMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.cameras.count, 0)
     }
     
+    func test_loadView_displaysTitleAsCameraMap() {
+        let (sut, _) = makeSUT()
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(sut.title, "Camera Map")
+    }
+    
     func test_loadView_requestsForCameras() {
         let (sut, delegate) = makeSUT()
         sut.loadViewIfNeeded()

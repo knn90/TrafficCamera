@@ -28,14 +28,15 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Camera Map"
         mapView.setCenter(defaultCoordinate, animated: true)
         delegate?.didRequestForCameras()
     }
     
     func display(isLoading: Bool) {
         if isLoading {
-            loadingIndicator.startAnimating()
             loadingIndicator.isHidden = false
+            loadingIndicator.startAnimating()
         } else {
             loadingIndicator.stopAnimating()
             loadingIndicator.isHidden = true
