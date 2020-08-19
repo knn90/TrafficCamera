@@ -29,7 +29,7 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Camera Map"
-        mapView.setCenter(defaultCoordinate, animated: true)
+        setupMapView()
         delegate?.didRequestForCameras()
     }
     
@@ -58,11 +58,34 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
         addAnnotationToMap(cameras: cameras)
     }
     
+    private func setupMapView() {
+        mapView.setCenter(defaultCoordinate, animated: true)
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: String(describing: CameraAnnotation.self))
+        mapView.delegate = self
+    }
+    
     private func addAnnotationToMap(cameras: [Camera]) {
         for camera in cameras {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: camera.location.latitude, longitude: camera.location.longitude)
+            let annotation = CameraAnnotation(coordinate: CLLocationCoordinate2D(latitude: camera.location.latitude, longitude: camera.location.longitude))
             mapView.addAnnotation(annotation)
         }
+    }
+}
+
+extension CameraMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = String(describing: CameraAnnotation.self)
+        let view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier, for: annotation)
+        if let markerAnnotationView = view as? MKMarkerAnnotationView {
+            markerAnnotationView.animatesWhenAdded = true
+            markerAnnotationView.canShowCallout = true
+            markerAnnotationView.markerTintColor = UIColor.purple
+            
+            // Provide an image view to use as the accessory view's detail view.
+            
+            return markerAnnotationView
+        }
+        
+        return view
     }
 }
