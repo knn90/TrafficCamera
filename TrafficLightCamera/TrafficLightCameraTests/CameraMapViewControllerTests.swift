@@ -8,20 +8,21 @@
 
 import XCTest
 import DomainFramework
+import MapKit
 
 @testable import TrafficLightCamera
 
 class CameraMapViewControllerTests: XCTestCase {
-    func test_loadView_hasZeroCamerasOnMap() {
+    func test_init_hasZeroCamerasOnMap() {
         let sut = makeSUT()
         
         XCTAssertEqual(sut.cameras.count, 0)
     }
-
+  
     
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CameraMapViewController {
-        let sut = CameraMapViewController()
+        let sut = ViewControllerFactory.createViewController(for: CameraMapViewController.self) as! CameraMapViewController
         
         tracksForMemoryLeak(sut, file: file, line: line)
         
