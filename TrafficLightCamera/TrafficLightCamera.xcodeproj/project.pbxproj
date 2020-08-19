@@ -125,6 +125,8 @@
 		6A48F1A624ECCC280048F3E8 /* TrafficLightCamera */ = {
 			isa = PBXGroup;
 			children = (
+				6AB8F65224ED06DA00DC2EE1 /* Helpers */,
+				6AB8F65124ED06CA00DC2EE1 /* CameraMap */,
 				6A48F1A724ECCC280048F3E8 /* AppDelegate.swift */,
 				6A48F1A924ECCC280048F3E8 /* SceneDelegate.swift */,
 				6A48F1AB24ECCC280048F3E8 /* ViewController.swift */,
@@ -132,9 +134,6 @@
 				6A48F1B024ECCC290048F3E8 /* Assets.xcassets */,
 				6A48F1B224ECCC290048F3E8 /* LaunchScreen.storyboard */,
 				6A48F1B524ECCC290048F3E8 /* Info.plist */,
-				6AB8F64624ECE78800DC2EE1 /* CameraMapViewController.swift */,
-				6AB8F64824ECE7A900DC2EE1 /* CameraMapViewController.storyboard */,
-				6AB8F64A24ECE8EB00DC2EE1 /* ViewControllerFactory.swift */,
 			);
 			path = TrafficLightCamera;
 			sourceTree = "<group>";
@@ -172,6 +171,23 @@
 			children = (
 				6AB8F64424ECE67100DC2EE1 /* XCTestCase+Extension.swift */,
 				6AB8F64F24ED005800DC2EE1 /* CameraFactory.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6AB8F65124ED06CA00DC2EE1 /* CameraMap */ = {
+			isa = PBXGroup;
+			children = (
+				6AB8F64624ECE78800DC2EE1 /* CameraMapViewController.swift */,
+				6AB8F64824ECE7A900DC2EE1 /* CameraMapViewController.storyboard */,
+			);
+			path = CameraMap;
+			sourceTree = "<group>";
+		};
+		6AB8F65224ED06DA00DC2EE1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6AB8F64A24ECE8EB00DC2EE1 /* ViewControllerFactory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
