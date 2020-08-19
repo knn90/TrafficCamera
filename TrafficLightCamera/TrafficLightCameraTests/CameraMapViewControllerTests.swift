@@ -42,6 +42,15 @@ class CameraMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.isShowingLoadingIndicator, false)
     }
     
+    func test_displayError_showsErrorViewOnNonNilMessage() {
+        let (sut, _) = makeSUT()
+        sut.loadViewIfNeeded()
+        sut.display(errorMessage: "errorMessage")
+        
+        XCTAssertEqual(sut.errorMessage, "errorMessage")
+        XCTAssertEqual(sut.isShowingError, true)
+    }
+    
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CameraMapViewController, CameraMapViewControllerDelegateSpy) {
         let sut = ViewControllerFactory.createViewController(for: CameraMapViewController.self) as! CameraMapViewController
@@ -71,5 +80,13 @@ class CameraMapViewControllerTests: XCTestCase {
 extension CameraMapViewController {
     var isShowingLoadingIndicator: Bool {
         return loadingIndicator.isAnimating
+    }
+    
+    var errorMessage: String? {
+        return errorLabel.text
+    }
+    
+    var isShowingError: Bool {
+        return !errorViewContainter.isHidden
     }
 }

@@ -14,10 +14,12 @@ protocol CameraMapViewControllerDelegate: class {
     func didRequestForCameras()
 }
 
-class CameraMapViewController: UIViewController, LoadingView {
-
+class CameraMapViewController: UIViewController, LoadingView, ErrorViewType {
+   
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorViewContainter: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     weak var delegate: CameraMapViewControllerDelegate?
     var cameras = [Camera]()
@@ -36,5 +38,10 @@ class CameraMapViewController: UIViewController, LoadingView {
         } else {
             loadingIndicator.stopAnimating()
         }
+    }
+    
+    func display(errorMessage: String?) {
+        errorLabel.text = errorMessage
+        errorViewContainter.isHidden = false
     }
 }

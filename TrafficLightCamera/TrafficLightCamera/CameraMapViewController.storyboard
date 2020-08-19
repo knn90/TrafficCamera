@@ -15,25 +15,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-gb-ene">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Ym-lg-o7M">
+                                <rect key="frame" x="0.0" y="44" width="414" height="878"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCm-2j-Bk9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-Og-eZ9">
+                                                <rect key="frame" x="15" y="5" width="384" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="IlL-Og-eZ9" firstAttribute="leading" secondItem="KCm-2j-Bk9" secondAttribute="leading" constant="15" id="Dlx-b4-6bB"/>
+                                            <constraint firstAttribute="height" constant="60" id="IEq-I1-xgT"/>
+                                            <constraint firstAttribute="trailing" secondItem="IlL-Og-eZ9" secondAttribute="trailing" constant="15" id="Ned-Tm-Ow1"/>
+                                            <constraint firstItem="IlL-Og-eZ9" firstAttribute="top" secondItem="KCm-2j-Bk9" secondAttribute="top" constant="5" id="Vzs-PT-Knt"/>
+                                            <constraint firstAttribute="bottom" secondItem="IlL-Og-eZ9" secondAttribute="bottom" constant="5" id="vxJ-7d-UaU"/>
+                                        </constraints>
+                                    </view>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-gb-ene">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="818"/>
+                                    </mapView>
+                                </subviews>
+                            </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="M3H-HK-r0Q">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bej-3Y-wmf" firstAttribute="bottom" secondItem="LN2-gb-ene" secondAttribute="bottom" id="68q-R2-6HP"/>
                             <constraint firstItem="M3H-HK-r0Q" firstAttribute="centerX" secondItem="IHX-Sy-xKM" secondAttribute="centerX" id="Fbb-Ol-ee3"/>
-                            <constraint firstItem="LN2-gb-ene" firstAttribute="leading" secondItem="bej-3Y-wmf" secondAttribute="leading" id="LTc-jP-Y0V"/>
                             <constraint firstItem="M3H-HK-r0Q" firstAttribute="centerY" secondItem="IHX-Sy-xKM" secondAttribute="centerY" id="OgI-t3-TlN"/>
-                            <constraint firstItem="LN2-gb-ene" firstAttribute="top" secondItem="bej-3Y-wmf" secondAttribute="top" id="VJK-4D-SHM"/>
-                            <constraint firstItem="bej-3Y-wmf" firstAttribute="trailing" secondItem="LN2-gb-ene" secondAttribute="trailing" id="ifk-BB-K6f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bej-3Y-wmf"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="IlL-Og-eZ9" id="IC9-Rz-i3F"/>
+                        <outlet property="errorViewContainter" destination="KCm-2j-Bk9" id="9UA-1L-AUy"/>
                         <outlet property="loadingIndicator" destination="M3H-HK-r0Q" id="COA-H6-Dz8"/>
                         <outlet property="mapView" destination="LN2-gb-ene" id="uXe-aC-oeI"/>
                     </connections>
