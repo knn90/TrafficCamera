@@ -75,6 +75,17 @@ class CameraMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.cameras, cameras)
     }
     
+    func test_displayCameras_renderAnnotationOnMap() {
+        let (sut, _) = makeSUT()
+        let firstCamera = CameraFactory.anyCamera()
+        let secondCamera = CameraFactory.anyCamera()
+        let cameras = [firstCamera, secondCamera]
+        sut.loadViewIfNeeded()
+        sut.display(cameras: cameras)
+        
+        XCTAssertEqual(sut.mapView.annotations.count, 2)
+    }
+    
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CameraMapViewController, CameraMapViewControllerDelegateSpy) {
         let sut = ViewControllerFactory.viewController(for: CameraMapViewController.self)

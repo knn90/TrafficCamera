@@ -55,5 +55,14 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
     
     func display(cameras: [Camera]) {
         self.cameras = cameras
+        addAnnotationToMap(cameras: cameras)
+    }
+    
+    private func addAnnotationToMap(cameras: [Camera]) {
+        for camera in cameras {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: camera.location.latitude, longitude: camera.location.longitude)
+            mapView.addAnnotation(annotation)
+        }
     }
 }
