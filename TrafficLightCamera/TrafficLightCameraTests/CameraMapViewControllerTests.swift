@@ -97,7 +97,7 @@ class CameraMapViewControllerTests: XCTestCase {
 
 extension CameraMapViewController {
     var isShowingLoadingIndicator: Bool {
-        return loadingIndicator.isAnimating
+        return loadingIndicator.isAnimating && !loadingIndicator.isHidden
     }
     
     var errorMessage: String? {
