@@ -51,6 +51,15 @@ class CameraMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.isShowingError, true)
     }
     
+    func test_displayError_hidesErrorViewOnNilMessage() {
+           let (sut, _) = makeSUT()
+           sut.loadViewIfNeeded()
+           sut.display(errorMessage: nil)
+           
+           XCTAssertEqual(sut.errorMessage, nil)
+           XCTAssertEqual(sut.isShowingError, false)
+       }
+    
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CameraMapViewController, CameraMapViewControllerDelegateSpy) {
         let sut = ViewControllerFactory.createViewController(for: CameraMapViewController.self) as! CameraMapViewController

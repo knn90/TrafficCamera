@@ -15,7 +15,7 @@ protocol CameraMapViewControllerDelegate: class {
 }
 
 class CameraMapViewController: UIViewController, LoadingView, ErrorViewType {
-   
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var errorViewContainter: UIView!
@@ -41,7 +41,13 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType {
     }
     
     func display(errorMessage: String?) {
-        errorLabel.text = errorMessage
-        errorViewContainter.isHidden = false
+        if let errorMessage = errorMessage {
+            errorLabel.text = errorMessage
+            errorViewContainter.isHidden = false
+            
+        } else {
+            errorLabel.text = nil
+            errorViewContainter.isHidden = true
+        }
     }
 }
