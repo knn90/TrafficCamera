@@ -24,6 +24,9 @@
 		6AB8F65024ED005800DC2EE1 /* CameraFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F64F24ED005800DC2EE1 /* CameraFactory.swift */; };
 		6AB8F65424ED0A1600DC2EE1 /* CameraMapComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65324ED0A1600DC2EE1 /* CameraMapComposer.swift */; };
 		6AB8F65624ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65524ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift */; };
+		6AB8F65C24ED10EA00DC2EE1 /* URLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65B24ED10EA00DC2EE1 /* URLFactory.swift */; };
+		6AB8F65E24ED136400DC2EE1 /* MainDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65D24ED136400DC2EE1 /* MainDispatchDecorator.swift */; };
+		6AB8F66024ED15C700DC2EE1 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65F24ED15C700DC2EE1 /* WeakRefVirtualProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		6AB8F64F24ED005800DC2EE1 /* CameraFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFactory.swift; sourceTree = "<group>"; };
 		6AB8F65324ED0A1600DC2EE1 /* CameraMapComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMapComposer.swift; sourceTree = "<group>"; };
 		6AB8F65524ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMapLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		6AB8F65B24ED10EA00DC2EE1 /* URLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFactory.swift; sourceTree = "<group>"; };
+		6AB8F65D24ED136400DC2EE1 /* MainDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatchDecorator.swift; sourceTree = "<group>"; };
+		6AB8F65F24ED15C700DC2EE1 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				6AB8F64A24ECE8EB00DC2EE1 /* ViewControllerFactory.swift */,
+				6AB8F65B24ED10EA00DC2EE1 /* URLFactory.swift */,
+				6AB8F65D24ED136400DC2EE1 /* MainDispatchDecorator.swift */,
+				6AB8F65F24ED15C700DC2EE1 /* WeakRefVirtualProxy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -326,10 +335,13 @@
 			files = (
 				6A48F1AC24ECCC280048F3E8 /* ViewController.swift in Sources */,
 				6AB8F64B24ECE8EB00DC2EE1 /* ViewControllerFactory.swift in Sources */,
+				6AB8F66024ED15C700DC2EE1 /* WeakRefVirtualProxy.swift in Sources */,
 				6AB8F65624ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift in Sources */,
 				6A48F1A824ECCC280048F3E8 /* AppDelegate.swift in Sources */,
 				6AB8F64724ECE78800DC2EE1 /* CameraMapViewController.swift in Sources */,
 				6A48F1AA24ECCC280048F3E8 /* SceneDelegate.swift in Sources */,
+				6AB8F65C24ED10EA00DC2EE1 /* URLFactory.swift in Sources */,
+				6AB8F65E24ED136400DC2EE1 /* MainDispatchDecorator.swift in Sources */,
 				6AB8F65424ED0A1600DC2EE1 /* CameraMapComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

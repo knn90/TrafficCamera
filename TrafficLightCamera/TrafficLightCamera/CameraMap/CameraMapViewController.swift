@@ -10,7 +10,7 @@ import UIKit
 import DomainFramework
 import MapKit
 
-protocol CameraMapViewControllerDelegate: class {
+protocol CameraMapViewControllerDelegate {
     func didRequestForCameras()
 }
 
@@ -21,7 +21,7 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
     @IBOutlet weak var errorViewContainter: UIView!
     @IBOutlet weak var errorLabel: UILabel!
     
-    weak var delegate: CameraMapViewControllerDelegate?
+    var delegate: CameraMapViewControllerDelegate?
     var cameras = [Camera]()
     
     private let defaultCoordinate = CLLocationCoordinate2D(latitude: 1.28967, longitude: 103.85007)
@@ -35,8 +35,10 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
     func display(isLoading: Bool) {
         if isLoading {
             loadingIndicator.startAnimating()
+            loadingIndicator.isHidden = false
         } else {
             loadingIndicator.stopAnimating()
+            loadingIndicator.isHidden = true
         }
     }
     

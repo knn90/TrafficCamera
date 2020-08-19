@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import DomainFramework
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -20,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        
-        let cameraMapViewController = ViewControllerFactory.viewController(for: CameraMapViewController.self)
+        let client = URLSessionHTTPClient(session: URLSession.shared)
+        let url = URLFactory.makeCameraMapURL(timestamp: "2020-05-16T05:50:06")
+        let loader = CameraLoader(client: client, url: url)
+        let cameraMapViewController = CameraMapComposer.cameraMapComposeWith(loader: loader)
         let navigationController = UINavigationController(rootViewController: cameraMapViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

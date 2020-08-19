@@ -11,11 +11,14 @@ import DomainFramework
 
 class CameraMapComposer {
     static func cameraMapComposeWith(loader: Loader) -> CameraMapViewController {
-        let presentationAdapter = CameraMapLoaderPresentationAdapter(cameraLoader: loader)
+        let presentationAdapter = CameraMapLoaderPresentationAdapter(cameraLoader: MainQueueDispatchDecorator(decoratee: loader))
         let cameraMapViewController = ViewControllerFactory.viewController(for: CameraMapViewController.self)
         cameraMapViewController.delegate = presentationAdapter
         
-        presentationAdapter.presenter = CameraPresenter(loadingView: cameraMapViewController, errorView: cameraMapViewController, teamView: cameraMapViewController)
+        presentationAdapter.presenter = CameraPresenter(
+            loadingView: WeakRefVirtualProxy(cameraMapViewController),
+            errorView: WeakRefVirtualProxy(cameraMapViewController),
+            teamView: WeakRefVirtualProxy(cameraMapViewController))
         return cameraMapViewController
     }
 }

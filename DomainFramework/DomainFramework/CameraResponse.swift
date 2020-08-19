@@ -9,20 +9,20 @@
 import Foundation
 
 public struct CameraResponse: Decodable, Equatable {
-    var items: [CameraItem]
+    public var items: [CameraItem]
 }
 
 public struct CameraItem: Decodable, Equatable {
-    var timestamp: String
-    var cameras: [Camera]
+    public var timestamp: String
+    public var cameras: [Camera]
 }
 
 public struct Camera: Decodable, Equatable {
-    var timestamp: String
-    var image: String
-    var location: Location
-    var cameraId: String
-    var imageMetaData: ImageMetaData
+    public var timestamp: String
+    public var image: String
+    public var location: Location
+    public var cameraId: String
+    public var imageMetaData: ImageMetaData
     
     public init(timestamp: String, image: String, location: Location, cameraId: String, imageMetaData: ImageMetaData) {
         self.timestamp = timestamp
@@ -34,8 +34,8 @@ public struct Camera: Decodable, Equatable {
 }
 
 public struct Location: Decodable, Equatable {
-    var latitude: Double
-    var longitude: Double
+    public var latitude: Double
+    public var longitude: Double
     
     public init(latitude: Double, longitude: Double) {
            self.latitude = latitude
@@ -44,9 +44,9 @@ public struct Location: Decodable, Equatable {
 }
 
 public struct ImageMetaData: Decodable, Equatable {
-    var height: Int
-    var width: Int
-    var md5: String
+    public var height: Int
+    public var width: Int
+    public var md5: String
     
     public init(height: Int, width: Int, md5: String) {
         self.height = height
