@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2nZ-0r-r0u">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera Map View Controller-->
+        <scene sceneID="sZc-ee-8Q8">
+            <objects>
+                <viewController storyboardIdentifier="CameraMapViewController" id="2nZ-0r-r0u" customClass="CameraMapViewController" customModule="TrafficLightCamera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IHX-Sy-xKM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-gb-ene">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bej-3Y-wmf" firstAttribute="bottom" secondItem="LN2-gb-ene" secondAttribute="bottom" id="68q-R2-6HP"/>
+                            <constraint firstItem="LN2-gb-ene" firstAttribute="leading" secondItem="bej-3Y-wmf" secondAttribute="leading" id="LTc-jP-Y0V"/>
+                            <constraint firstItem="LN2-gb-ene" firstAttribute="top" secondItem="bej-3Y-wmf" secondAttribute="top" id="VJK-4D-SHM"/>
+                            <constraint firstItem="bej-3Y-wmf" firstAttribute="trailing" secondItem="LN2-gb-ene" secondAttribute="trailing" id="ifk-BB-K6f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bej-3Y-wmf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dvo-d1-oST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="-271"/>
+        </scene>
+    </scenes>
+</document>
