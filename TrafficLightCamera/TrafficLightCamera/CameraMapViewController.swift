@@ -14,9 +14,10 @@ protocol CameraMapViewControllerDelegate: class {
     func didRequestForCameras()
 }
 
-class CameraMapViewController: UIViewController {
-    
+class CameraMapViewController: UIViewController, LoadingView {
+
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     weak var delegate: CameraMapViewControllerDelegate?
     var cameras = [Camera]()
@@ -27,5 +28,11 @@ class CameraMapViewController: UIViewController {
         super.viewDidLoad()
         mapView.setCenter(defaultCoordinate, animated: true)
         delegate?.didRequestForCameras()
+    }
+    
+    func display(isLoading: Bool) {
+        if isLoading {
+            loadingIndicator.startAnimating()
+        }
     }
 }
