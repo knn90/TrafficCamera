@@ -43,8 +43,7 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType {
     func display(errorMessage: String?) {
         if let errorMessage = errorMessage {
             errorLabel.text = errorMessage
-            errorViewContainter.isHidden = false
-            
+            errorViewContainter.isHidden = false   
         } else {
             errorLabel.text = nil
             errorViewContainter.isHidden = true

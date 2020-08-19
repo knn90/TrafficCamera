@@ -15,30 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Ym-lg-o7M">
-                                <rect key="frame" x="0.0" y="44" width="414" height="878"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Ym-lg-o7M">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCm-2j-Bk9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-Og-eZ9">
-                                                <rect key="frame" x="15" y="5" width="384" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-Og-eZ9">
+                                                <rect key="frame" x="15" y="10" width="384" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="0.83448024611398963" green="0.27248537213480667" blue="0.15759816686788647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="IlL-Og-eZ9" firstAttribute="leading" secondItem="KCm-2j-Bk9" secondAttribute="leading" constant="15" id="Dlx-b4-6bB"/>
-                                            <constraint firstAttribute="height" constant="60" id="IEq-I1-xgT"/>
                                             <constraint firstAttribute="trailing" secondItem="IlL-Og-eZ9" secondAttribute="trailing" constant="15" id="Ned-Tm-Ow1"/>
-                                            <constraint firstItem="IlL-Og-eZ9" firstAttribute="top" secondItem="KCm-2j-Bk9" secondAttribute="top" constant="5" id="Vzs-PT-Knt"/>
-                                            <constraint firstAttribute="bottom" secondItem="IlL-Og-eZ9" secondAttribute="bottom" constant="5" id="vxJ-7d-UaU"/>
+                                            <constraint firstItem="IlL-Og-eZ9" firstAttribute="top" secondItem="KCm-2j-Bk9" secondAttribute="top" constant="10" id="Vzs-PT-Knt"/>
+                                            <constraint firstAttribute="bottom" secondItem="IlL-Og-eZ9" secondAttribute="bottom" constant="10" id="vxJ-7d-UaU"/>
                                         </constraints>
                                     </view>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-gb-ene">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="818"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-gb-ene">
+                                        <rect key="frame" x="0.0" y="40.5" width="414" height="811.5"/>
                                     </mapView>
                                 </subviews>
                             </stackView>
@@ -49,7 +48,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="M3H-HK-r0Q" firstAttribute="centerX" secondItem="IHX-Sy-xKM" secondAttribute="centerX" id="Fbb-Ol-ee3"/>
+                            <constraint firstItem="8Ym-lg-o7M" firstAttribute="trailing" secondItem="bej-3Y-wmf" secondAttribute="trailing" id="Fbi-8A-xca"/>
                             <constraint firstItem="M3H-HK-r0Q" firstAttribute="centerY" secondItem="IHX-Sy-xKM" secondAttribute="centerY" id="OgI-t3-TlN"/>
+                            <constraint firstAttribute="bottom" secondItem="8Ym-lg-o7M" secondAttribute="bottom" id="QvY-UB-bs2"/>
+                            <constraint firstItem="8Ym-lg-o7M" firstAttribute="top" secondItem="bej-3Y-wmf" secondAttribute="top" id="byd-Ju-TA3"/>
+                            <constraint firstItem="8Ym-lg-o7M" firstAttribute="leading" secondItem="bej-3Y-wmf" secondAttribute="leading" id="mpt-NS-CeR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bej-3Y-wmf"/>
                     </view>
