@@ -22,6 +22,8 @@
 		6AB8F64B24ECE8EB00DC2EE1 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F64A24ECE8EB00DC2EE1 /* ViewControllerFactory.swift */; };
 		6AB8F64E24ECE95800DC2EE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB8F64D24ECE95800DC2EE1 /* MapKit.framework */; };
 		6AB8F65024ED005800DC2EE1 /* CameraFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F64F24ED005800DC2EE1 /* CameraFactory.swift */; };
+		6AB8F65424ED0A1600DC2EE1 /* CameraMapComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65324ED0A1600DC2EE1 /* CameraMapComposer.swift */; };
+		6AB8F65624ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8F65524ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		6AB8F64A24ECE8EB00DC2EE1 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		6AB8F64D24ECE95800DC2EE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6AB8F64F24ED005800DC2EE1 /* CameraFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFactory.swift; sourceTree = "<group>"; };
+		6AB8F65324ED0A1600DC2EE1 /* CameraMapComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMapComposer.swift; sourceTree = "<group>"; };
+		6AB8F65524ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMapLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				6A48F1B024ECCC290048F3E8 /* Assets.xcassets */,
 				6A48F1B224ECCC290048F3E8 /* LaunchScreen.storyboard */,
 				6A48F1B524ECCC290048F3E8 /* Info.plist */,
+				6AB8F65324ED0A1600DC2EE1 /* CameraMapComposer.swift */,
 			);
 			path = TrafficLightCamera;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			children = (
 				6AB8F64624ECE78800DC2EE1 /* CameraMapViewController.swift */,
 				6AB8F64824ECE7A900DC2EE1 /* CameraMapViewController.storyboard */,
+				6AB8F65524ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift */,
 			);
 			path = CameraMap;
 			sourceTree = "<group>";
@@ -320,9 +326,11 @@
 			files = (
 				6A48F1AC24ECCC280048F3E8 /* ViewController.swift in Sources */,
 				6AB8F64B24ECE8EB00DC2EE1 /* ViewControllerFactory.swift in Sources */,
+				6AB8F65624ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift in Sources */,
 				6A48F1A824ECCC280048F3E8 /* AppDelegate.swift in Sources */,
 				6AB8F64724ECE78800DC2EE1 /* CameraMapViewController.swift in Sources */,
 				6A48F1AA24ECCC280048F3E8 /* SceneDelegate.swift in Sources */,
+				6AB8F65424ED0A1600DC2EE1 /* CameraMapComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

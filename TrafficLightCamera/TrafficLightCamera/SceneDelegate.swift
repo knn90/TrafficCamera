@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let cameraMapViewController = ViewControllerFactory.createViewController(for: CameraMapViewController.self)
+        let cameraMapViewController = ViewControllerFactory.viewController(for: CameraMapViewController.self)
         let navigationController = UINavigationController(rootViewController: cameraMapViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

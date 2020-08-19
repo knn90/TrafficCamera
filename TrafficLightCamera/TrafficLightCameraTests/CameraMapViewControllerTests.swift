@@ -71,7 +71,7 @@ class CameraMapViewControllerTests: XCTestCase {
     
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CameraMapViewController, CameraMapViewControllerDelegateSpy) {
-        let sut = ViewControllerFactory.createViewController(for: CameraMapViewController.self) as! CameraMapViewController
+        let sut = ViewControllerFactory.viewController(for: CameraMapViewController.self)
         let delegate = CameraMapViewControllerDelegateSpy()
         sut.delegate = delegate
         

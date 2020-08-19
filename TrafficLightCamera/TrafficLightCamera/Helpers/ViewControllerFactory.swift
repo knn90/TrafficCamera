@@ -15,7 +15,7 @@ class ViewControllerFactory {
         return createViewController(for: type) as! T
     }
     
-    static func createViewController(for classType: AnyClass) -> UIViewController {
+    private static func createViewController(for classType: AnyClass) -> UIViewController {
         let bundle = Bundle(for: classType.self)
         let identifier = String(describing: classType.self)
         let storyboard = UIStoryboard(name: identifier, bundle: bundle)
