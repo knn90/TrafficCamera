@@ -33,6 +33,8 @@ class CameraMapViewController: UIViewController, LoadingView {
     func display(isLoading: Bool) {
         if isLoading {
             loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
         }
     }
 }

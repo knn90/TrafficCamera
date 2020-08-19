@@ -34,6 +34,14 @@ class CameraMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.isShowingLoadingIndicator, true)
     }
     
+    func test_displayIsLoading_showsLoadingIndicatorOnFalse() {
+        let (sut, _) = makeSUT()
+        sut.loadViewIfNeeded()
+        sut.display(isLoading: false)
+        
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
+    }
+    
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CameraMapViewController, CameraMapViewControllerDelegateSpy) {
         let sut = ViewControllerFactory.createViewController(for: CameraMapViewController.self) as! CameraMapViewController
