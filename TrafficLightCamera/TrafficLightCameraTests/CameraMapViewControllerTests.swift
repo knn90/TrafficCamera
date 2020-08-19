@@ -52,13 +52,22 @@ class CameraMapViewControllerTests: XCTestCase {
     }
     
     func test_displayError_hidesErrorViewOnNilMessage() {
-           let (sut, _) = makeSUT()
-           sut.loadViewIfNeeded()
-           sut.display(errorMessage: nil)
-           
-           XCTAssertEqual(sut.errorMessage, nil)
-           XCTAssertEqual(sut.isShowingError, false)
-       }
+        let (sut, _) = makeSUT()
+        sut.loadViewIfNeeded()
+        sut.display(errorMessage: nil)
+        
+        XCTAssertEqual(sut.errorMessage, nil)
+        XCTAssertEqual(sut.isShowingError, false)
+    }
+    
+    func test_displayCameras_updateCamerasArray() {
+        let (sut, _) = makeSUT()
+        let cameras = [CameraFactory.anyCamera(), CameraFactory.anyCamera()]
+        sut.loadViewIfNeeded()
+        sut.display(cameras: cameras)
+        
+        XCTAssertEqual(sut.cameras, cameras)
+    }
     
     //MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CameraMapViewController, CameraMapViewControllerDelegateSpy) {
