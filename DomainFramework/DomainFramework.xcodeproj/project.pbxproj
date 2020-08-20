@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A4E805D24EE46BC006B4DF6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E805C24EE46BC006B4DF6 /* ImageLoader.swift */; };
+		6A4E805F24EE4891006B4DF6 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E805E24EE4891006B4DF6 /* ImageLoaderTests.swift */; };
 		6AADACB524ECCE6D00BF329F /* DomainFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AADACAB24ECCE6D00BF329F /* DomainFramework.framework */; };
 		6AADACBC24ECCE6D00BF329F /* DomainFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AADACAE24ECCE6D00BF329F /* DomainFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AADACC624ECCE9400BF329F /* CameraLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADACC524ECCE9400BF329F /* CameraLoader.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A4E805C24EE46BC006B4DF6 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		6A4E805E24EE4891006B4DF6 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
 		6AADACAB24ECCE6D00BF329F /* DomainFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AADACAE24ECCE6D00BF329F /* DomainFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainFramework.h; sourceTree = "<group>"; };
 		6AADACAF24ECCE6D00BF329F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			children = (
 				6AADACAE24ECCE6D00BF329F /* DomainFramework.h */,
 				6AADACAF24ECCE6D00BF329F /* Info.plist */,
+				6A4E805C24EE46BC006B4DF6 /* ImageLoader.swift */,
 				6AADACC524ECCE9400BF329F /* CameraLoader.swift */,
 				6AADACC724ECCEFB00BF329F /* CameraResponse.swift */,
 				6AADACCB24ECCF2A00BF329F /* HTTPClient.swift */,
@@ -105,6 +110,7 @@
 				6AADACBB24ECCE6D00BF329F /* Info.plist */,
 				6AADACC924ECCF0D00BF329F /* CameraLoaderTests.swift */,
 				6AFAF43324ECD57900898C8B /* CameraPresenterTests.swift */,
+				6A4E805E24EE4891006B4DF6 /* ImageLoaderTests.swift */,
 			);
 			path = DomainFrameworkTests;
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 			files = (
 				6AADACC624ECCE9400BF329F /* CameraLoader.swift in Sources */,
 				6AB8F65A24ED105A00DC2EE1 /* URLSessionHTTPClient.swift in Sources */,
+				6A4E805D24EE46BC006B4DF6 /* ImageLoader.swift in Sources */,
 				6AFAF43224ECD56B00898C8B /* CameraPresenter.swift in Sources */,
 				6AADACC824ECCEFB00BF329F /* CameraResponse.swift in Sources */,
 				6AADACCC24ECCF2A00BF329F /* HTTPClient.swift in Sources */,
@@ -240,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4E805F24EE4891006B4DF6 /* ImageLoaderTests.swift in Sources */,
 				6AADACCA24ECCF0D00BF329F /* CameraLoaderTests.swift in Sources */,
 				6AFAF43924ECD75200898C8B /* XCTestCase+Extensions.swift in Sources */,
 				6AFAF43424ECD57900898C8B /* CameraPresenterTests.swift in Sources */,

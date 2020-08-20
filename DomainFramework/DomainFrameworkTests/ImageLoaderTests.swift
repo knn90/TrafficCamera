@@ -1,17 +1,15 @@
 //
-//  CameraLoaderTest.swift
-//  NetworkingFrameworkTests
+//  ImageLoaderTests.swift
+//  DomainFrameworkTests
 //
-//  Created by Khoi Nguyen on 19/8/20.
+//  Created by Khoi Nguyen on 20/8/20.
 //  Copyright © 2020 Khoi Nguyen. All rights reserved.
 //
 
-import Foundation
 import XCTest
 import DomainFramework
 
-class CameraLoaderTest: XCTestCase {
-    
+class ImageLoaderTests: XCTestCase {
     func test_init_shouldNotSendAnyRequest() {
         let (_, client) = makeSUT()
         
@@ -22,7 +20,7 @@ class CameraLoaderTest: XCTestCase {
         let url = anyURL()
         let (sut, client) = makeSUT()
         
-        sut.load() { _ in }
+        sut.load(url: url) { _ in }
         
         XCTAssertEqual(client.requestedURL, [url])
     }
@@ -31,7 +29,7 @@ class CameraLoaderTest: XCTestCase {
         let (sut, client) = makeSUT()
         let error = NSError(domain: "any", code: 0)
         
-        expect(sut: sut, toCompleteLoadingWithResult: .failure(CameraLoader.Error.generalError), when: {
+        expect(sut: sut, toLoadURL: anyURL(), toCompleteLoadingWithResult: .failure(CameraImageLoader.Error.generalError), when: {
             client.completeRequest(withError: error)
         })
     }
@@ -41,26 +39,17 @@ class CameraLoaderTest: XCTestCase {
         let statusCodes = [199, 201, 300, 400, 500]
         
         statusCodes.enumerated().forEach { index, code in
-            expect(sut: sut, toCompleteLoadingWithResult: .failure(CameraLoader.Error.invalidData), when: {
+            expect(sut: sut, toLoadURL: anyURL(), toCompleteLoadingWithResult: .failure(CameraImageLoader.Error.invalidData), when: {
                 client.completeRequest(withStatusCode: code, at: index)
             })
         }
     }
     
-    func test_load_shouldReturnFailureOn200HTTPResponseWithInvalidData() {
-        let (sut, client) = makeSUT()
-        let invalidData = Data("invalid JSON data".utf8)
-        
-        expect(sut: sut, toCompleteLoadingWithResult: .failure(CameraLoader.Error.invalidData), when: {
-            client.completeRequest(withStatusCode: 200, data: invalidData)
-        })
-    }
-    
     //MARK: - Helpers
-    private func makeSUT(url: URL? = nil) -> (sut: CameraLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL? = nil) -> (sut: CameraImageLoader, client: HTTPClientSpy) {
         
         let client = HTTPClientSpy()
-        let sut = CameraLoader(client: client, url: url ?? anyURL())
+        let sut = CameraImageLoader(client: client)
         
         return (sut, client)
     }
@@ -83,12 +72,12 @@ class CameraLoaderTest: XCTestCase {
         }
     }
     
-    private func expect(sut: CameraLoader, toCompleteLoadingWithResult expectedResult: Loader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+    private func expect(sut: CameraImageLoader, toLoadURL url: URL, toCompleteLoadingWithResult expectedResult: ImageLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
-        sut.load() { receivedResult in
+        sut.load(url: url) { receivedResult in
             switch (receivedResult, expectedResult) {
-            case let (.success(receivedSnapshot), .success(expectedSnapshot)):
-                XCTAssertEqual(receivedSnapshot, expectedSnapshot, file: file, line: line)
+            case let (.success(receivedData), .success(expectedData)):
+                XCTAssertEqual(receivedData, expectedData, file: file, line: line)
             case let (.failure(receivedError), .failure(expectedError)):
                 XCTAssertEqual(receivedError as NSError, expectedError as NSError, file: file, line: line)
             default:
@@ -104,4 +93,3 @@ class CameraLoaderTest: XCTestCase {
         return URL(string: "http://any-url.com")!
     }
 }
-

@@ -8,14 +8,9 @@
 
 import Foundation
 
-
-public enum LoaderResult {
-    case success(CameraResponse)
-    case failure(Error)
-}
-
 public protocol Loader {
-    func load(completion: @escaping (LoaderResult) -> Void)
+    typealias Result = Swift.Result<CameraResponse, Error>
+    func load(completion: @escaping (Loader.Result) -> Void)
 }
 
 public class CameraLoader: Loader {
@@ -33,14 +28,14 @@ public class CameraLoader: Loader {
         self.url = url
     }
     
-    public func load(completion: @escaping (LoaderResult) -> Void) {
+    public func load(completion: @escaping (Loader.Result) -> Void) {
         client.request(from: url) { result in
             switch result {
             case let .success(data, response):
-                guard let snapshot = try? JSONDecoder().decode(CameraResponse.self, from: data), response.statusCode == 200 else {
+                guard let cameraResponse = try? JSONDecoder().decode(CameraResponse.self, from: data), response.statusCode == 200 else {
                     return completion(.failure(Error.invalidData))
                 }
-                completion(.success(snapshot))
+                completion(.success(cameraResponse))
             case .failure:
                 completion(.failure(Error.generalError))
             }
