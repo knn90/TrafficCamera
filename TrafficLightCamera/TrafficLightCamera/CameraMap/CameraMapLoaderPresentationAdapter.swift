@@ -19,16 +19,16 @@ class CameraMapLoaderPresentationAdapter: CameraMapViewControllerDelegate {
     
     func didRequestForCameras() {
         presenter?.didStartLoadingCameras()
-        cameraLoader.load { result in
+        cameraLoader.load { [weak self] result in
             switch result {
             case let .success(response):
                 if response.items.count > 0 {
-                    self.presenter?.didFinishLoading(with: response.items[0].cameras)
+                    self?.presenter?.didFinishLoading(with: response.items[0].cameras)
                 } else {
-                    self.presenter?.didFinishLoading(with: [])
+                    self?.presenter?.didFinishLoading(with: [])
                 }
             case let .failure(error):
-                self.presenter?.didFinishLoading(with: error)
+                self?.presenter?.didFinishLoading(with: error)
             }
         }
     }

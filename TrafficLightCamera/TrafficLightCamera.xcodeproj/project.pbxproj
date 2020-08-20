@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		6A48F1A824ECCC280048F3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A48F1A724ECCC280048F3E8 /* AppDelegate.swift */; };
 		6A48F1AA24ECCC280048F3E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A48F1A924ECCC280048F3E8 /* SceneDelegate.swift */; };
-		6A48F1AC24ECCC280048F3E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A48F1AB24ECCC280048F3E8 /* ViewController.swift */; };
 		6A48F1AF24ECCC280048F3E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A48F1AD24ECCC280048F3E8 /* Main.storyboard */; };
 		6A48F1B124ECCC290048F3E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A48F1B024ECCC290048F3E8 /* Assets.xcassets */; };
 		6A48F1B424ECCC290048F3E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A48F1B224ECCC290048F3E8 /* LaunchScreen.storyboard */; };
+		6A4E806724EE5CDC006B4DF6 /* AnnotationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E806624EE5CDC006B4DF6 /* AnnotationController.swift */; };
+		6A4E806924EE5D1F006B4DF6 /* CameraViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E806824EE5D1F006B4DF6 /* CameraViewAdapter.swift */; };
+		6A4E806B24EE5D58006B4DF6 /* AnnotationLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E806A24EE5D58006B4DF6 /* AnnotationLoaderPresentationAdapter.swift */; };
 		6AAEA66A24ED209B00266593 /* CameraAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEA66924ED209B00266593 /* CameraAnnotation.swift */; };
 		6AB8F63924ECE41200DC2EE1 /* DomainFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB8F63624ECE3BB00DC2EE1 /* DomainFramework.framework */; };
 		6AB8F63A24ECE41200DC2EE1 /* DomainFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB8F63624ECE3BB00DC2EE1 /* DomainFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -72,13 +74,15 @@
 		6A48F1A424ECCC280048F3E8 /* TrafficLightCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficLightCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A48F1A724ECCC280048F3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A48F1A924ECCC280048F3E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6A48F1AB24ECCC280048F3E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6A48F1AE24ECCC280048F3E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A48F1B024ECCC290048F3E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A48F1B324ECCC290048F3E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A48F1B524ECCC290048F3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A48F1BA24ECCC290048F3E8 /* TrafficLightCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafficLightCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A48F1C024ECCC290048F3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A4E806624EE5CDC006B4DF6 /* AnnotationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationController.swift; sourceTree = "<group>"; };
+		6A4E806824EE5D1F006B4DF6 /* CameraViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewAdapter.swift; sourceTree = "<group>"; };
+		6A4E806A24EE5D58006B4DF6 /* AnnotationLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		6AAEA66924ED209B00266593 /* CameraAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAnnotation.swift; sourceTree = "<group>"; };
 		6AB8F63024ECE3BB00DC2EE1 /* DomainFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DomainFramework.xcodeproj; path = ../DomainFramework/DomainFramework.xcodeproj; sourceTree = "<group>"; };
 		6AB8F63C24ECE51200DC2EE1 /* CameraMapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMapViewControllerTests.swift; sourceTree = "<group>"; };
@@ -139,9 +143,9 @@
 			children = (
 				6AB8F65224ED06DA00DC2EE1 /* Helpers */,
 				6AB8F65124ED06CA00DC2EE1 /* CameraMap */,
+				6A4E806524EE5CC5006B4DF6 /* Annotation */,
 				6A48F1A724ECCC280048F3E8 /* AppDelegate.swift */,
 				6A48F1A924ECCC280048F3E8 /* SceneDelegate.swift */,
-				6A48F1AB24ECCC280048F3E8 /* ViewController.swift */,
 				6A48F1AD24ECCC280048F3E8 /* Main.storyboard */,
 				6A48F1B024ECCC290048F3E8 /* Assets.xcassets */,
 				6A48F1B224ECCC290048F3E8 /* LaunchScreen.storyboard */,
@@ -159,6 +163,15 @@
 				6AB8F63C24ECE51200DC2EE1 /* CameraMapViewControllerTests.swift */,
 			);
 			path = TrafficLightCameraTests;
+			sourceTree = "<group>";
+		};
+		6A4E806524EE5CC5006B4DF6 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E806624EE5CDC006B4DF6 /* AnnotationController.swift */,
+				6A4E806A24EE5D58006B4DF6 /* AnnotationLoaderPresentationAdapter.swift */,
+			);
+			path = Annotation;
 			sourceTree = "<group>";
 		};
 		6AB8F62F24ECE3BB00DC2EE1 /* Frameworks */ = {
@@ -195,6 +208,7 @@
 				6AB8F64824ECE7A900DC2EE1 /* CameraMapViewController.storyboard */,
 				6AB8F65524ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift */,
 				6AAEA66924ED209B00266593 /* CameraAnnotation.swift */,
+				6A4E806824EE5D1F006B4DF6 /* CameraViewAdapter.swift */,
 			);
 			path = CameraMap;
 			sourceTree = "<group>";
@@ -336,9 +350,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A48F1AC24ECCC280048F3E8 /* ViewController.swift in Sources */,
+				6A4E806B24EE5D58006B4DF6 /* AnnotationLoaderPresentationAdapter.swift in Sources */,
 				6AB8F64B24ECE8EB00DC2EE1 /* ViewControllerFactory.swift in Sources */,
 				6AB8F66024ED15C700DC2EE1 /* WeakRefVirtualProxy.swift in Sources */,
+				6A4E806724EE5CDC006B4DF6 /* AnnotationController.swift in Sources */,
+				6A4E806924EE5D1F006B4DF6 /* CameraViewAdapter.swift in Sources */,
 				6AB8F65624ED0D0000DC2EE1 /* CameraMapLoaderPresentationAdapter.swift in Sources */,
 				6A48F1A824ECCC280048F3E8 /* AppDelegate.swift in Sources */,
 				6AB8F64724ECE78800DC2EE1 /* CameraMapViewController.swift in Sources */,

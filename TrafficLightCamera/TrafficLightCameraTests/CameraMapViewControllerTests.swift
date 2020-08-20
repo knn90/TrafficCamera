@@ -13,11 +13,6 @@ import MapKit
 @testable import TrafficLightCamera
 
 class CameraMapViewControllerTests: XCTestCase {
-    func test_init_hasZeroCamerasOnMap() {
-        let (sut, _) = makeSUT()
-        
-        XCTAssertEqual(sut.cameras.count, 0)
-    }
     
     func test_loadView_displaysTitleAsCameraMap() {
         let (sut, _) = makeSUT()
@@ -66,24 +61,14 @@ class CameraMapViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.isShowingError, false)
     }
     
-    func test_displayCameras_updateCamerasArray() {
-        let (sut, _) = makeSUT()
-        let cameras = [CameraFactory.anyCamera(), CameraFactory.anyCamera()]
-        sut.loadViewIfNeeded()
-        sut.display(cameras: cameras)
-        
-        XCTAssertEqual(sut.cameras, cameras)
-    }
-    
     func test_displayCameras_renderAnnotationOnMap() {
         let (sut, _) = makeSUT()
-        let firstCamera = CameraFactory.anyCamera()
-        let secondCamera = CameraFactory.anyCamera()
-        let cameras = [firstCamera, secondCamera]
+        let camera = CameraFactory.anyCamera()
+        let cameraController = CameraAnnotationController(annotation: CameraAnnotation(coordinate: CLLocationCoordinate2D(latitude: camera.location.latitude, longitude: camera.location.longitude), url: nil), delegate: nil)
         sut.loadViewIfNeeded()
-        sut.display(cameras: cameras)
+        sut.display(cameraAnnotationControllers: [cameraController])
         
-        XCTAssertEqual(sut.mapView.annotations.count, 2)
+        XCTAssertEqual(sut.mapView.annotations.count, 1)
     }
     
     //MARK: - Helpers

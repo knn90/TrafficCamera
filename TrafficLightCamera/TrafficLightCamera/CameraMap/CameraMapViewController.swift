@@ -14,7 +14,7 @@ protocol CameraMapViewControllerDelegate {
     func didRequestForCameras()
 }
 
-class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, CameraView {
+class CameraMapViewController: UIViewController, LoadingView, ErrorViewType {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -22,7 +22,7 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
     @IBOutlet weak var errorLabel: UILabel!
     
     var delegate: CameraMapViewControllerDelegate?
-    var cameras = [Camera]()
+    var annotationDic: [CameraAnnotation: CameraAnnotationController] = [:]
     
     private let defaultCoordinate = CLLocationCoordinate2D(latitude: 1.28967, longitude: 103.85007)
     
@@ -53,9 +53,11 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
         }
     }
     
-    func display(cameras: [Camera]) {
-        self.cameras = cameras
-        addAnnotationToMap(cameras: cameras)
+    func display(cameraAnnotationControllers: [CameraAnnotationController]) {
+        for controller in cameraAnnotationControllers {
+            annotationDic[controller.annotation] = controller
+            mapView.addAnnotation(controller.annotation)
+        }
     }
     
     private func setupMapView() {
@@ -63,29 +65,21 @@ class CameraMapViewController: UIViewController, LoadingView, ErrorViewType, Cam
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: String(describing: CameraAnnotation.self))
         mapView.delegate = self
     }
-    
-    private func addAnnotationToMap(cameras: [Camera]) {
-        for camera in cameras {
-            let annotation = CameraAnnotation(coordinate: CLLocationCoordinate2D(latitude: camera.location.latitude, longitude: camera.location.longitude))
-            mapView.addAnnotation(annotation)
-        }
-    }
 }
 
 extension CameraMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = String(describing: CameraAnnotation.self)
-        let view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier, for: annotation)
-        if let markerAnnotationView = view as? MKMarkerAnnotationView {
-            markerAnnotationView.animatesWhenAdded = true
-            markerAnnotationView.canShowCallout = true
-            markerAnnotationView.markerTintColor = UIColor.purple
-            
-            // Provide an image view to use as the accessory view's detail view.
-            
-            return markerAnnotationView
-        }
+        guard let annotation = annotation as? CameraAnnotation else { return nil }
+        let controller = annotationDic[annotation]
+        return controller?.view(in: mapView)
         
-        return view
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let view = view as? MKMarkerAnnotationView, let annotation = view.annotation as? CameraAnnotation else { return }
+        
+        let controller = annotationDic[annotation]
+        controller?.requestImage()
+    }
+    
 }

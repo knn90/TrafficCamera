@@ -10,15 +10,18 @@ import Foundation
 import DomainFramework
 
 class CameraMapComposer {
-    static func cameraMapComposeWith(loader: Loader) -> CameraMapViewController {
-        let presentationAdapter = CameraMapLoaderPresentationAdapter(cameraLoader: MainQueueDispatchDecorator(decoratee: loader))
+    static func cameraMapComposeWith(loader: Loader, imageLoader: ImageLoader) -> CameraMapViewController {
+        let presentationAdapter =  CameraMapLoaderPresentationAdapter(cameraLoader: MainQueueDispatchDecorator(decoratee: loader))
         let cameraMapViewController = ViewControllerFactory.viewController(for: CameraMapViewController.self)
         cameraMapViewController.delegate = presentationAdapter
         
         presentationAdapter.presenter = CameraPresenter(
             loadingView: WeakRefVirtualProxy(cameraMapViewController),
             errorView: WeakRefVirtualProxy(cameraMapViewController),
-            teamView: WeakRefVirtualProxy(cameraMapViewController))
+            teamView: CameraViewAdapter(imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader), controller: cameraMapViewController))
         return cameraMapViewController
     }
 }
+
+
+

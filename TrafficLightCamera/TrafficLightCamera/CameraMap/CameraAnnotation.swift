@@ -11,8 +11,10 @@ import MapKit
 
 class CameraAnnotation: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
+    let url: URL?
     
-    init(coordinate: CLLocationCoordinate2D) {
+    init(coordinate: CLLocationCoordinate2D, url: URL?) {
         self.coordinate = coordinate
+        self.url = url
     }
 }
